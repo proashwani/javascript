@@ -1,0 +1,58 @@
+There is various way to define a function. It is totally based upon your requirement. Below are the few styles :-
+===========================
+Object constructor
+===========================
+var person = new Object();
+
+person.name = "Anand",
+person.getName = function(){
+  return this.name ; 
+};
+===========================
+Literal constructor :-  use this way, if you happen to have all the properties you wish to set on hand at creation time.
+===========================
+var person = { 
+  name : "Anand",
+  getName : function (){
+   return this.name
+  } 
+} 
+===========================
+function Constructor
+===========================
+function Person(name){
+  this.name = name
+  this.getName = function(){
+    return this.name
+  } 
+} 
+
+===========================
+Prototype
+===========================
+function Person(){};
+
+Person.prototype.name = "Anand";
+
+===========================
+Function/Prototype combination
+===========================
+function Person(name){
+  this.name = name;
+} 
+Person.prototype.getName = function(){
+  return this.name
+} 
+
+===========================
+Singleton
+===========================
+var person = new function(){
+  this.name = "Anand"
+} 
+
+
+The constructor pattern (a function paired with the new operator to invoke it) 
+provides the possibility of using prototypal inheritance, whereas the other ways don't.
+So if you want prototypal inheritance, then a constructor function is a fine way to go.
+
